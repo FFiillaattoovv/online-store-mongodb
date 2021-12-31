@@ -1,10 +1,19 @@
 const express = require('express');
-const path = require('path');
+const expressHandlebars = require('express-handlebars');
 
 const app = express();
 
+const hbs = expressHandlebars.create({
+    defaultLayout: 'main',
+    extname: 'hbs'
+});
+
+app.engine('hbs', hbs.engine);
+app.set('views engine', 'hbs');
+app.set('views', 'views');
+
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'home.html'));
+    res.render('home');
 });
 
 const PORT = process.env.PORT || 3000;
