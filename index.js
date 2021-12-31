@@ -9,11 +9,15 @@ const hbs = expressHandlebars.create({
 });
 
 app.engine('hbs', hbs.engine);
-app.set('views engine', 'hbs');
+app.set('view engine', 'hbs');
 app.set('views', 'views');
 
 app.get('/', (req, res) => {
     res.render('home');
+});
+
+app.get('/about', (req, res) => {
+    res.render('about');
 });
 
 const PORT = process.env.PORT || 3000;
