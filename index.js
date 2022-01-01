@@ -18,8 +18,20 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
-app.get('/about', (req, res) => {
-    res.render('about');
+app.get('/cellphones', (req, res) => {
+    res.render('cellphones');
+});
+
+app.get('/xiaomi', (req, res) => {
+    res.render('xiaomi');
+});
+
+app.get('/smart-home-and-gadgets', (req, res) => {
+    res.render('smart-home-and-gadgets');
+});
+
+app.get('/on-sale', (req, res) => {
+    res.render('on-sale');
 });
 
 const PORT = process.env.PORT || 3000;
