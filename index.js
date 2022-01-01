@@ -14,6 +14,8 @@ app.set('views', 'views');
 
 app.use(express.static('public'));
 
+app.disable('x-powered-by');
+
 app.get('/', (req, res) => {
     res.render('home');
 });
