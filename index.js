@@ -1,6 +1,12 @@
 const express = require('express');
 const expressHandlebars = require('express-handlebars');
 
+const homeRouter = require('./routes/home');
+const cellphonesRouter = require('./routes/cellphones');
+const xiaomiRouter = require('./routes/xiaomi');
+const smartHomeAndGadgetsRouter = require('./routes/smart-home-and-gadgets');
+const onSaleRouter = require('./routes/on-sale');
+
 const app = express();
 
 const hbs = expressHandlebars.create({
@@ -16,40 +22,11 @@ app.use(express.static('public'));
 
 app.disable('x-powered-by');
 
-app.get('/', (req, res) => {
-    res.render('home', {
-        title: 'Home',
-        isHome: true
-    });
-});
-
-app.get('/cellphones', (req, res) => {
-    res.render('cellphones', {
-        title: 'Cellphones',
-        isCellphones: true
-    });
-});
-
-app.get('/xiaomi', (req, res) => {
-    res.render('xiaomi', {
-        title: 'Xiaomi',
-        isXiaomi: true
-    });
-});
-
-app.get('/smart-home-and-gadgets', (req, res) => {
-    res.render('smart-home-and-gadgets', {
-        title: 'Smart home and gadgets',
-        isSmartHomeAndGadgets: true
-    });
-});
-
-app.get('/on-sale', (req, res) => {
-    res.render('on-sale', {
-        title: 'SALE',
-        isSale: true
-    });
-});
+app.use('/', homeRouter);
+app.use('/cellphones', cellphonesRouter);
+app.use('/xiaomi', xiaomiRouter);
+app.use('/smart-home-and-gadgets', smartHomeAndGadgetsRouter);
+app.use('/on-sale', onSaleRouter);
 
 const PORT = process.env.PORT || 3000;
 
