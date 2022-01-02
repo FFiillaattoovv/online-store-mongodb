@@ -2,11 +2,35 @@
     <div class="nav-wrapper">
         <a href="/" class="brand-logo">Smartphone Shop</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/">Home</a></li>
-            <li><a href="/cellphones">Cellphones</a></li>
-            <li><a href="/xiaomi">Xiaomi</a></li>
-            <li><a href="/smart-home-and-gadgets">Smart home and gadgets</a></li>
-            <li><a href="/on-sale">SALE</a></li>
+            {{#if isHome}}
+                <li class="active"><a href="/">Home</a></li>
+            {{else}}
+                <li><a href="/">Home</a></li>
+            {{/if}}
+
+            {{#if isCellphones}}
+                <li class="active"><a href="/cellphones">Cellphones</a></li>
+            {{else}}
+                <li><a href="/cellphones">Cellphones</a></li>
+            {{/if}}
+
+            {{#if isXiaomi}}
+                <li class="active"><a href="/xiaomi">Xiaomi</a></li>
+            {{else}}
+                <li><a href="/xiaomi">Xiaomi</a></li>
+            {{/if}}
+
+            {{#if isSmartHomeAndGadgets}}
+                <li class="active"><a href="/smart-home-and-gadgets">Smart home and gadgets</a></li>
+            {{else}}
+                <li><a href="/smart-home-and-gadgets">Smart home and gadgets</a></li>
+            {{/if}}
+
+            {{#if isSale}}
+                <li class="active"><a href="/on-sale">SALE</a></li>
+            {{else}}
+                <li><a href="/on-sale">SALE</a></li>
+            {{/if}}
         </ul>
     </div>
 </nav>

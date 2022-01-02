@@ -17,23 +17,38 @@ app.use(express.static('public'));
 app.disable('x-powered-by');
 
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('home', {
+        title: 'Home',
+        isHome: true
+    });
 });
 
 app.get('/cellphones', (req, res) => {
-    res.render('cellphones');
+    res.render('cellphones', {
+        title: 'Cellphones',
+        isCellphones: true
+    });
 });
 
 app.get('/xiaomi', (req, res) => {
-    res.render('xiaomi');
+    res.render('xiaomi', {
+        title: 'Xiaomi',
+        isXiaomi: true
+    });
 });
 
 app.get('/smart-home-and-gadgets', (req, res) => {
-    res.render('smart-home-and-gadgets');
+    res.render('smart-home-and-gadgets', {
+        title: 'Smart home and gadgets',
+        isSmartHomeAndGadgets: true
+    });
 });
 
 app.get('/on-sale', (req, res) => {
-    res.render('on-sale');
+    res.render('on-sale', {
+        title: 'SALE',
+        isSale: true
+    });
 });
 
 const PORT = process.env.PORT || 3000;
