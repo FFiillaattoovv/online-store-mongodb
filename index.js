@@ -2,10 +2,8 @@ const express = require('express');
 const expressHandlebars = require('express-handlebars');
 
 const homeRouter = require('./routes/home');
-const cellphonesRouter = require('./routes/cellphones');
-const xiaomiRouter = require('./routes/xiaomi');
-const smartHomeAndGadgetsRouter = require('./routes/smart-home-and-gadgets');
-const onSaleRouter = require('./routes/on-sale');
+const coursesRouter = require('./routes/courses');
+const addCourseRouter = require('./routes/add-course');
 
 const app = express();
 
@@ -23,10 +21,8 @@ app.use(express.static('public'));
 app.disable('x-powered-by');
 
 app.use('/', homeRouter);
-app.use('/cellphones', cellphonesRouter);
-app.use('/xiaomi', xiaomiRouter);
-app.use('/smart-home-and-gadgets', smartHomeAndGadgetsRouter);
-app.use('/on-sale', onSaleRouter);
+app.use('/courses', coursesRouter);
+app.use('/add-course', addCourseRouter);
 
 const PORT = process.env.PORT || 3000;
 
